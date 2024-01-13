@@ -1,36 +1,12 @@
-from bs4 import BeautifulSoup
-import requests
+import pandas as pd
+import yfinance as yf
 
-url = "https://companiesmarketcap.com/dow-jones/largest-companies-by-market-cap/"
-res = requests.get(url)
+sp500_url = r"https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+dow_url = r"https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components"
 
-# We want Company code (and maybe name)
-# 2nd column, class company-code
-# And for each company, their market cap
-soup = BeautifulSoup(res.text, "lxml")
-table = soup.find("table")
-# print(table)
-tbody = table.find("tbody")
-
-print(tbody)
-rows = tbody.find_all("tr")
-# print(rows)
-# print(len(rows))
+dow_table = pd.read_html(dow_url)[1]
 
 
-symbols = []
-market_caps = []
-sizes = []
-
-
-# print(rows[0].findAll("td"))
-
-# for row in rows:
-# columns = row
-# for row in rows:
-#     # columns = row.find_all("td")
-#     print(row)
-# print(soup)
-# print(res.status_code)
-# print(res.headers)
-# print(res.text)
+# print(len(tables))
+# print(pd.read_html(dow_url)[1])
+# print(pd.read_html(dow_url)[1])
