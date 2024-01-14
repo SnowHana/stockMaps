@@ -1,6 +1,9 @@
+# import matplotlib
+
+# matplotlib.use("TkAgg")
+import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
-import matplotlib.pyplot as plt
 import squarify
 
 url = "https://companiesmarketcap.com/dow-jones/largest-companies-by-market-cap/"
@@ -53,19 +56,4 @@ squarify.plot(
     bar_kwargs={"linewidth": 0.5, "edgecolor": "#111111"},
 )
 
-
-plt.title("DowMap")
-plt.savefig("dow_plot.png")
-plt.close()
-# squarify.plot(
-#     sizes=market_caps,
-#     label=labels,
-#     color=colors,
-#     bar_kwargs={"linewidth": 0.5, "edgecolor": "#111111"},
-# )
-
-# plt.title("DowMap")
-# plt.savefig("dow_plot.png")
-# plt.close()
-
-# print(labels)
+plt.show()
